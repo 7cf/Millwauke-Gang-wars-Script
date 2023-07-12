@@ -69,7 +69,7 @@ button1.Parent = frame
 -- Create the FlatHead button
 local button2 = Instance.new("TextButton")
 button2.Size = UDim2.new(0, 100, 0, 50)
-button2.Position = UDim2.new(0.5, -50, 0.5, -25)
+button2.Position = UDim2.new(0.5, -50, 0.5, -75)
 button2.BackgroundColor3 = Color3.new(0, 0, 0)
 button2.TextColor3 = Color3.new(1, 1, 1)
 button2.Font = Enum.Font.SourceSans
@@ -77,16 +77,38 @@ button2.TextSize = 16
 button2.Text = "FlatHead"
 button2.Parent = frame
 
--- Create the Drum button
+-- Create the G17 button
 local button3 = Instance.new("TextButton")
 button3.Size = UDim2.new(0, 100, 0, 50)
-button3.Position = UDim2.new(0.5, -50, 0.65, -25)
+button3.Position = UDim2.new(0.5, -50, 0.5, -25)
 button3.BackgroundColor3 = Color3.new(0, 0, 0)
 button3.TextColor3 = Color3.new(1, 1, 1)
 button3.Font = Enum.Font.SourceSans
 button3.TextSize = 16
-button3.Text = "Drum"
+button3.Text = "G17"
 button3.Parent = frame
+
+-- Create the Ski Mask button
+local button4 = Instance.new("TextButton")
+button4.Size = UDim2.new(0, 100, 0, 50)
+button4.Position = UDim2.new(0.5, -50, 0.65, -25)
+button4.BackgroundColor3 = Color3.new(0, 0, 0)
+button4.TextColor3 = Color3.new(1, 1, 1)
+button4.Font = Enum.Font.SourceSans
+button4.TextSize = 16
+button4.Text = "Ski Mask"
+button4.Parent = frame
+
+-- Create the Sprite button
+local button5 = Instance.new("TextButton")
+button5.Size = UDim2.new(0, 100, 0, 50)
+button5.Position = UDim2.new(0.5, -50, 0.85, -25)
+button5.BackgroundColor3 = Color3.new(0, 0, 0)
+button5.TextColor3 = Color3.new(1, 1, 1)
+button5.Font = Enum.Font.SourceSans
+button5.TextSize = 16
+button5.Text = "Sprite"
+button5.Parent = frame
 
 -- Function to run when the keypad button is clicked
 button1.MouseButton1Click:Connect(function()
@@ -114,16 +136,39 @@ button2.MouseButton1Click:Connect(function()
     game:GetService("ReplicatedStorage").RemoteEvents.MoveChestItem:FireServer(unpack(args))
 end)
 
--- Function to run when the Drum button is clicked
+-- Function to run when the G17 button is clicked
 button3.MouseButton1Click:Connect(function()
     local args = {
         [1] = {
-            [1] = "GlockDrum",
-            [2] = "GlockDrum",
-            [3] = "GlockDrum",
-            [4] = "GlockDrum"
+            [1] = "G17E"
         },
-        [2] = 4,
+        [2] = 1,
+        [3] = "77"
+    }
+
+    game:GetService("ReplicatedStorage").RemoteEvents.MoveChestItem:FireServer(unpack(args))
+end)
+
+-- Function to run when the Ski Mask button is clicked
+button4.MouseButton1Click:Connect(function()
+    local args = {
+        [1] = {
+            [1] = "Balaclava"
+        },
+        [2] = 1,
+        [3] = "70"
+    }
+
+    game:GetService("ReplicatedStorage").RemoteEvents.MoveChestItem:FireServer(unpack(args))
+end)
+
+-- Function to run when the Sprite button is clicked
+button5.MouseButton1Click:Connect(function()
+    local args = {
+        [1] = {
+            [1] = "Sprite"
+        },
+        [2] = 1,
         [3] = "70"
     }
 
