@@ -1,86 +1,40 @@
--- Create the GUI
-local gui = Instance.new("ScreenGui")
-gui.Name = "MillwaukeGUI"
-gui.ResetOnSpawn = false
-gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
--- Create the main frame
-local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 200, 0, 250) -- Adjusted height to 250
-frame.Position = UDim2.new(0.5, -100, 0.5, -125) -- Adjusted position to center the frame
-frame.BackgroundColor3 = Color3.new(0, 0, 0)
-frame.BorderColor3 = Color3.new(0, 0, 0)
-frame.BorderSizePixel = 0
-frame.Active = true
-frame.Draggable = true -- Make the frame draggable
-frame.Parent = gui
-
--- Create the title bar
-local titleBar = Instance.new("Frame")
-titleBar.Size = UDim2.new(1, 0, 0, 30)
-titleBar.BackgroundColor3 = Color3.new(0, 0, 0)
-titleBar.BorderSizePixel = 0
-titleBar.Parent = frame
-
--- Create the minimize button
-local minimizeButton = Instance.new("TextButton")
-minimizeButton.Size = UDim2.new(0, 30, 0, 30)
-minimizeButton.Position = UDim2.new(1, -60, 0, 0)
-minimizeButton.BackgroundTransparency = 1
-minimizeButton.Text = "-"
-minimizeButton.TextColor3 = Color3.new(1, 1, 1)
-minimizeButton.Font = Enum.Font.SourceSansBold
-minimizeButton.TextSize = 20
-minimizeButton.Parent = titleBar
-
--- Create the close button
-local closeButton = Instance.new("TextButton")
-closeButton.Size = UDim2.new(0, 30, 0, 30)
-closeButton.Position = UDim2.new(1, -30, 0, 0)
-closeButton.BackgroundTransparency = 1
-closeButton.Text = "X"
-closeButton.TextColor3 = Color3.new(1, 1, 1)
-closeButton.Font = Enum.Font.SourceSansBold
-closeButton.TextSize = 20
-closeButton.Parent = titleBar
-
--- Create the title label
-local title = Instance.new("TextLabel")
-title.Size = UDim2.new(1, -60, 1, 0)
-title.Position = UDim2.new(0, 5, 0, 0)
-title.BackgroundTransparency = 1
-title.TextColor3 = Color3.new(1, 1, 1)
-title.Font = Enum.Font.SourceSansBold
-title.TextSize = 20
-title.Text = "millwauke"
+title.Text = "Millwauke"
 title.Parent = titleBar
 
+-- Create the keypad button (same as before)
 -- Create the keypad button
 local button1 = Instance.new("TextButton")
 button1.Size = UDim2.new(0, 100, 0, 50)
 button1.Position = UDim2.new(0.5, -50, 0.35, -25)
-button1.BackgroundColor3 = Color3.new(0, 0, 0)
-button1.TextColor3 = Color3.new(1, 1, 1)
-button1.Font = Enum.Font.SourceSans
-button1.TextSize = 16
+@@ -66,7 +66,7 @@ button1.TextSize = 16
 button1.Text = "keypad"
 button1.Parent = frame
 
+-- Create the FlatHead button (same as before)
 -- Create the FlatHead button
 local button2 = Instance.new("TextButton")
 button2.Size = UDim2.new(0, 100, 0, 50)
-button2.Position = UDim2.new(0.5, -50, 0.5, -75)
-button2.BackgroundColor3 = Color3.new(0, 0, 0)
-button2.TextColor3 = Color3.new(1, 1, 1)
-button2.Font = Enum.Font.SourceSans
-button2.TextSize = 16
+button2.Position = UDim2.new(0.5, -50, 0.65, -25)
+@@ -77,18 +77,18 @@ button2.TextSize = 16
 button2.Text = "FlatHead"
 button2.Parent = frame
 
+-- Create the "Made By Unknown" label
+local creditLabel = Instance.new("TextLabel")
+creditLabel.Size = UDim2.new(1, 0, 0, 20)
+creditLabel.Position = UDim2.new(0, 0, 1, -20)
+creditLabel.BackgroundTransparency = 1
+creditLabel.TextColor3 = Color3.new(1, 1, 1)
+creditLabel.Font = Enum.Font.SourceSansBold
+creditLabel.TextSize = 14
+creditLabel.Text = "Made By Your UnKnown!"
+creditLabel.Parent = frame
+
+-- Function to run when the keypad button is clicked (same as before)
 -- Create the G17 button
 local button3 = Instance.new("TextButton")
 button3.Size = UDim2.new(0, 100, 0, 50)
-button3.Position = UDim2.new(0.5, -50, 0.5, -25)
+button3.Position = UDim2.new(0.5, -50, 0.85, -25)
 button3.BackgroundColor3 = Color3.new(0, 0, 0)
 button3.TextColor3 = Color3.new(1, 1, 1)
 button3.Font = Enum.Font.SourceSans
@@ -88,51 +42,20 @@ button3.TextSize = 16
 button3.Text = "G17"
 button3.Parent = frame
 
--- Create the Ski Mask button
-local button4 = Instance.new("TextButton")
-button4.Size = UDim2.new(0, 100, 0, 50)
-button4.Position = UDim2.new(0.5, -50, 0.65, -25)
-button4.BackgroundColor3 = Color3.new(0, 0, 0)
-button4.TextColor3 = Color3.new(1, 1, 1)
-button4.Font = Enum.Font.SourceSans
-button4.TextSize = 16
-button4.Text = "Ski Mask"
-button4.Parent = frame
-
--- Create the Sprite button
-local button5 = Instance.new("TextButton")
-button5.Size = UDim2.new(0, 100, 0, 50)
-button5.Position = UDim2.new(0.5, -50, 0.85, -25)
-button5.BackgroundColor3 = Color3.new(0, 0, 0)
-button5.TextColor3 = Color3.new(1, 1, 1)
-button5.Font = Enum.Font.SourceSans
-button5.TextSize = 16
-button5.Text = "Sprite"
-button5.Parent = frame
-
 -- Function to run when the keypad button is clicked
 button1.MouseButton1Click:Connect(function()
     local args = {
         [1] = {
-            [1] = "Keypad"
-        },
-        [2] = 1,
-        [3] = "65"
-    }
-
+@@ -101,7 +101,7 @@ button1.MouseButton1Click:Connect(function()
     game:GetService("ReplicatedStorage").RemoteEvents.MoveChestItem:FireServer(unpack(args))
 end)
 
+-- Function to run when the FlatHead button is clicked (same as before)
 -- Function to run when the FlatHead button is clicked
 button2.MouseButton1Click:Connect(function()
     local args = {
         [1] = {
-            [1] = "FlatHead"
-        },
-        [2] = 1,
-        [3] = "65"
-    }
-
+@@ -114,6 +114,19 @@ button2.MouseButton1Click:Connect(function()
     game:GetService("ReplicatedStorage").RemoteEvents.MoveChestItem:FireServer(unpack(args))
 end)
 
@@ -149,49 +72,6 @@ button3.MouseButton1Click:Connect(function()
     game:GetService("ReplicatedStorage").RemoteEvents.MoveChestItem:FireServer(unpack(args))
 end)
 
--- Function to run when the Ski Mask button is clicked
-button4.MouseButton1Click:Connect(function()
-    local args = {
-        [1] = {
-            [1] = "Balaclava"
-        },
-        [2] = 1,
-        [3] = "70"
-    }
-
-    game:GetService("ReplicatedStorage").RemoteEvents.MoveChestItem:FireServer(unpack(args))
-end)
-
--- Function to run when the Sprite button is clicked
-button5.MouseButton1Click:Connect(function()
-    local args = {
-        [1] = {
-            [1] = "Sprite"
-        },
-        [2] = 1,
-        [3] = "70"
-    }
-
-    game:GetService("ReplicatedStorage").RemoteEvents.MoveChestItem:FireServer(unpack(args))
-end)
-
 -- Minimize animation
 local isMinimized = false
 local targetPosition = UDim2.new(0.5, -100, 0.5, 100)
-
-local function MinimizeMenu()
-    if isMinimized then
-        frame:TweenPosition(UDim2.new(0.5, -100, 0.5, -125), Enum.EasingDirection.InOut, Enum.EasingStyle.Quint, 0.5, true)
-        isMinimized = false
-    else
-        frame:TweenPosition(targetPosition, Enum.EasingDirection.InOut, Enum.EasingStyle.Quint, 0.5, true)
-        isMinimized = true
-    end
-end
-
-minimizeButton.MouseButton1Click:Connect(MinimizeMenu)
-
--- Close button functionality
-closeButton.MouseButton1Click:Connect(function()
-    gui:Destroy()
-end)
